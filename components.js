@@ -25,7 +25,8 @@ function construireNav(pageActive) {
   return `
   <nav class="nav" aria-label="Navigation principale">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-cercle"><span>GB</span></div>
+      <!-- Logo à la place du cercle GB -->
+      <img src="logo.jpeg" alt="Cabinet Gbêmadoyômin" class="nav-logo-img" height="40">
       <div class="nav-logo-texte">
         <span class="nav-logo-principal">GBÊMADOYÔMIN</span>
         <span class="nav-logo-sous">TODAAA..!</span>
@@ -58,7 +59,10 @@ function construireFooter() {
     <div class="conteneur">
       <div class="footer-grille">
         <div>
-          <div class="f-logo">GBÊMADOYÔMIN</div>
+          <div class="f-logo">
+            <img src="logo.jpeg" alt="Cabinet Gbêmadoyômin" height="32" style="display:inline-block; vertical-align:middle; margin-right:10px;">
+            GBÊMADOYÔMIN
+          </div>
           <div class="f-slogan">Savoir • Transmission • Héritage • Innovation</div>
           <p class="f-desc">Construire un patrimoine de connaissances transmissible, capable de voyager, d'être enseigné et légué aux générations futures.</p>
           <div class="f-socials">
