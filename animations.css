@@ -46,17 +46,19 @@
   transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 .loader.cache { opacity: 0; visibility: hidden; pointer-events: none; }
-.loader-marque {
-  font-family: var(--font-titres);
-  color: var(--or);
-  letter-spacing: 0.3em;
-  font-size: 0.9rem;
-  animation: respirer 1.6s ease-in-out infinite;
+
+/* --- ANIMATION PREMIUM POUR LE LOGO --- */
+.loader-logo {
+  width: 80px;
+  height: auto;
+  animation: respireLogo 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(184,146,46,0.3));
 }
-@keyframes respirer {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+@keyframes respireLogo {
+  0%, 100% { transform: scale(0.95) rotate(-2deg); opacity: 0.8; }
+  50% { transform: scale(1.08) rotate(2deg); opacity: 1; }
 }
+/* --------------------------------------- */
 
 /* Panneau chatbot */
 .chatbot-panneau {
