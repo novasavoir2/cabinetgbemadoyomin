@@ -20,7 +20,9 @@
 
 <div id="nav-placeholder"></div>
 
-<!-- HERO -->
+<!-- ============================================================
+     HERO
+     ============================================================ -->
 <header class="hero">
   <div class="conteneur hero-grille">
     <div class="hero-contenu">
@@ -32,14 +34,20 @@
         <a class="btn-contour" href="le-professeur.html">Découvrir le Professeur</a>
       </div>
     </div>
-    <div class="hero-portrait">Portrait officiel du Professeur — photo à intégrer</div>
+    <div class="hero-portrait" style="background-image: url('hero-professeur.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+      <!-- Image hero-professeur.jpeg -->
+    </div>
   </div>
 </header>
 
-<!-- PRÉSENTATION RAPIDE -->
+<!-- ============================================================
+     PRÉSENTATION RAPIDE
+     ============================================================ -->
 <section class="presentation">
   <div class="conteneur presentation-grille">
-    <div class="presentation-photo reveal">Photo du Professeur — à intégrer</div>
+    <div class="presentation-photo reveal" style="background-image: url('professeur-portrait.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+      <!-- Image professeur-portrait.jpeg -->
+    </div>
     <div class="presentation-texte reveal">
       <p class="eyebrow">Un pont entre héritage et avenir</p>
       <h2>Scientifique de formation, homme de tradition par son parcours</h2>
@@ -50,13 +58,17 @@
   </div>
 </section>
 
-<!-- PROCHAIN ÉVÉNEMENT -->
+<!-- ============================================================
+     PROCHAIN ÉVÉNEMENT
+     ============================================================ -->
 <section class="prochain-evenement">
   <div class="conteneur">
     <p class="eyebrow reveal">À la une</p>
     <h2 class="reveal" style="margin-bottom: var(--espace-md);">Prochain événement</h2>
     <div class="evenement-bloc reveal">
-      <div class="evenement-affiche">Affiche de l'événement à venir</div>
+      <div class="evenement-affiche" style="background-image: url('affiche-evenement.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+        <!-- Image affiche-evenement.jpeg -->
+      </div>
       <div class="evenement-details">
         <h3>Titre de l'événement</h3>
         <div class="evenement-meta">
@@ -71,7 +83,9 @@
   </div>
 </section>
 
-<!-- CONSULTATIONS -->
+<!-- ============================================================
+     CONSULTATIONS
+     ============================================================ -->
 <section class="consultations-apercu">
   <div class="conteneur">
     <p class="eyebrow reveal">Consultez où que vous soyez</p>
@@ -99,27 +113,53 @@
   </div>
 </section>
 
-<!-- BOUTIQUE APERÇU -->
+<!-- ============================================================
+     BOUTIQUE APERÇU (4 livres)
+     ============================================================ -->
 <section class="boutique-apercu">
   <div class="conteneur">
     <p class="eyebrow reveal">Boutique TODAAA..!</p>
     <h2 class="reveal" style="margin-bottom: var(--espace-md);">Ouvrages du Professeur</h2>
     <div class="livres-grille">
+      <!-- Livre 1 -->
       <div class="livre-carte reveal">
-        <div class="livre-couverture">Le Livre du Fa</div>
-        <div class="livre-infos"><div class="livre-titre">Le Livre du Fa</div><div class="livre-prix">20 000 FCFA</div></div>
+        <div class="livre-couverture" style="background-image: url('livre-du-fa.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+          <!-- Image livre-du-fa.jpeg -->
+        </div>
+        <div class="livre-infos">
+          <div class="livre-titre">Le Livre du Fa</div>
+          <div class="livre-prix">20 000 FCFA</div>
+        </div>
       </div>
+      <!-- Livre 2 -->
       <div class="livre-carte reveal">
-        <div class="livre-couverture">Le Code de Vie</div>
-        <div class="livre-infos"><div class="livre-titre">Le Code de Vie</div><div class="livre-prix">20 000 FCFA</div></div>
+        <div class="livre-couverture" style="background-image: url('code-de-vie.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+          <!-- Image code-de-vie.jpeg -->
+        </div>
+        <div class="livre-infos">
+          <div class="livre-titre">Le Code de Vie</div>
+          <div class="livre-prix">20 000 FCFA</div>
+        </div>
       </div>
+      <!-- Livre 3 -->
       <div class="livre-carte reveal">
-        <div class="livre-couverture">Vodoun Dan</div>
-        <div class="livre-infos"><div class="livre-titre">Vodoun Dan</div><div class="livre-prix">15 000 FCFA</div></div>
+        <div class="livre-couverture" style="background-image: url('vodoun-dan.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+          <!-- Image vodoun-dan.jpeg -->
+        </div>
+        <div class="livre-infos">
+          <div class="livre-titre">Vodoun Dan</div>
+          <div class="livre-prix">15 000 FCFA</div>
+        </div>
       </div>
+      <!-- Livre 4 -->
       <div class="livre-carte reveal">
-        <div class="livre-couverture">Le Livre d'Astuces</div>
-        <div class="livre-infos"><div class="livre-titre">Le Livre d'Astuces</div><div class="livre-prix">25 000 FCFA</div></div>
+        <div class="livre-couverture" style="background-image: url('livre-astuces.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+          <!-- Image livre-astuces.jpeg -->
+        </div>
+        <div class="livre-infos">
+          <div class="livre-titre">Le Livre d'Astuces</div>
+          <div class="livre-prix">25 000 FCFA</div>
+        </div>
       </div>
     </div>
     <div style="text-align:center; margin-top: var(--espace-md);">
@@ -128,10 +168,12 @@
   </div>
 </section>
 
-<!-- VIBRATION SACRÉE TEASER -->
+<!-- ============================================================
+     VIBRATION SACRÉE TEASER
+     ============================================================ -->
 <section class="vibration-apercu">
   <div class="conteneur">
-    <div class="vibration-teaser parallax reveal" data-vitesse-parallax="0.15">
+    <div class="vibration-teaser parallax reveal" data-vitesse-parallax="0.15" style="background-image: linear-gradient(180deg, rgba(13,13,13,.55), rgba(13,13,13,.85)), url('communaute-vs.jpeg'); background-size: cover; background-position: center;">
       <div class="vibration-teaser-contenu">
         <p class="eyebrow">Une communauté • Une vision • Une fraternité</p>
         <h2>Vibration Sacrée</h2>
@@ -145,10 +187,14 @@
   </div>
 </section>
 
-<!-- TODAAA IDENTITÉ -->
+<!-- ============================================================
+     TODAAA IDENTITÉ
+     ============================================================ -->
 <section class="todaaa-identite">
   <div class="conteneur todaaa-bloc">
-    <div class="todaaa-bloc-visuel reveal">TODAAA..! — Collection 2026</div>
+    <div class="todaaa-bloc-visuel reveal" style="background-image: url('todaaa-collection-2026.jpeg'); background-size: cover; background-position: center; color: transparent; text-shadow: none;">
+      <!-- Image todaaa-collection-2026.jpeg -->
+    </div>
     <div class="reveal">
       <p class="eyebrow">Plus qu'une marque. Une identité.</p>
       <h2>TODAAA..!</h2>
@@ -158,7 +204,9 @@
   </div>
 </section>
 
-<!-- RÉSEAUX SOCIAUX -->
+<!-- ============================================================
+     RÉSEAUX SOCIAUX
+     ============================================================ -->
 <section class="reseaux">
   <div class="conteneur">
     <p class="eyebrow reveal" style="text-align:center;">Suivez le Cabinet</p>
