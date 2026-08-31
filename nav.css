@@ -114,3 +114,27 @@
   }
   .nav-burger { display: flex; }
 }
+
+/* ---- BOUTON DE THÈME (clair/sombre) ---- */
+.nav-droite {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-theme {
+  font-size: 1.2rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--vitesse), border-color var(--vitesse);
+  color: var(--texte);
+}
+.nav-theme:hover {
+  background: var(--surface-3);
+  border-color: var(--or);
+}
