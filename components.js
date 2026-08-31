@@ -1,5 +1,9 @@
-// components.js — injecte la nav, le footer, les boutons flottants et le sélecteur de thème
+// ============================================================
+// COMPONENTS.JS — Injection de la nav, du footer, des flottants
+// et gestion du thème (clair/sombre)
+// ============================================================
 
+// ---- MENU PRINCIPAL ----
 const LIENS_NAV = [
   { texte: 'Accueil', href: 'index.html', page: 'accueil' },
   { texte: 'Le Professeur', href: 'le-professeur.html', page: 'professeur' },
@@ -12,15 +16,21 @@ const LIENS_NAV = [
   { texte: 'Contact', href: 'contact.html', page: 'contact' },
 ];
 
+// ---- WHATSAPP ----
 const WHATSAPP_NUMERO = '22967668799';
 const WHATSAPP_URL = (texte = 'Bonjour, je souhaite prendre rendez-vous avec le Cabinet Gbêmadoyômin.') =>
   `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(texte)}`;
 
-// ---- GESTION DU THÈME ----
+// ============================================================
+// 1. GESTION DU THÈME (clair / sombre)
+// ============================================================
+
 function getThemePreference() {
+  // 1. Vérifier si l'utilisateur a déjà fait un choix
   const saved = localStorage.getItem('theme');
   if (saved === 'clair' || saved === 'sombre') return saved;
-  // Détection du thème du navigateur
+
+  // 2. Sinon, détecter le thème du navigateur
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
     return 'clair';
   }
@@ -29,15 +39,22 @@ function getThemePreference() {
 
 function applyTheme(theme) {
   const body = document.body;
+
+  // Appliquer la classe CSS
   if (theme === 'clair') {
     body.classList.add('clair');
   } else {
     body.classList.remove('clair');
   }
+
+  // Mémoriser le choix
   localStorage.setItem('theme', theme);
-  // Mettre à jour l'icône du bouton
+
+  // Mettre à jour l'icône du bouton (montrer le mode vers lequel on va)
   const btn = document.getElementById('theme-toggle');
   if (btn) {
+    // Si on est en mode clair, on affiche 🌙 (pour passer en sombre)
+    // Si on est en mode sombre, on affiche ☀️ (pour passer en clair)
     btn.textContent = theme === 'clair' ? '🌙' : '☀️';
     btn.setAttribute('aria-label', theme === 'clair' ? 'Passer en mode sombre' : 'Passer en mode clair');
   }
@@ -49,7 +66,10 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-// ---- CONSTRUCTION DE LA NAV ----
+// ============================================================
+// 2. CONSTRUCTION DE LA NAVIGATION
+// ============================================================
+
 function construireNav(pageActive) {
   const liens = LIENS_NAV.map(l =>
     `<a class="nav-lien${l.page === pageActive ? ' actif' : ''}" href="${l.href}">${l.texte}</a>`
@@ -64,10 +84,12 @@ function construireNav(pageActive) {
         <span class="nav-logo-sous">TODAAA..!</span>
       </div>
     </a>
+
     <div class="nav-liens" id="nav-liens">
       ${liens}
       <a class="btn-or nav-rdv-mobile" href="${WHATSAPP_URL()}" target="_blank" rel="noopener">Prendre RDV</a>
     </div>
+
     <div class="nav-droite">
       <button class="nav-theme" id="theme-toggle" aria-label="Basculer le thème"></button>
       <a class="nav-rdv" href="${WHATSAPP_URL()}" target="_blank" rel="noopener">Prendre RDV</a>
@@ -78,12 +100,16 @@ function construireNav(pageActive) {
   </nav>`;
 }
 
-// ---- CONSTRUCTION DU FOOTER ----
+// ============================================================
+// 3. CONSTRUCTION DU FOOTER
+// ============================================================
+
 function construireFooter() {
   return `
   <footer class="footer">
     <div class="conteneur">
       <div class="footer-grille">
+        <!-- Colonne 1 : Identité -->
         <div>
           <div class="f-logo">
             <img src="logo.jpeg" alt="Cabinet Gbêmadoyômin" height="32" style="display:inline-block; vertical-align:middle; margin-right:10px;">
@@ -97,6 +123,8 @@ function construireFooter() {
             <a class="f-social" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
           </div>
         </div>
+
+        <!-- Colonne 2 : Navigation -->
         <div>
           <div class="f-col-titre">Navigation</div>
           <div class="f-liens">
@@ -108,6 +136,8 @@ function construireFooter() {
             <a class="f-lien" href="medias.html">Médias</a>
           </div>
         </div>
+
+        <!-- Colonne 3 : Univers -->
         <div>
           <div class="f-col-titre">Univers</div>
           <div class="f-liens">
@@ -119,6 +149,8 @@ function construireFooter() {
             <a class="f-lien" href="vibration-sacree.html#avs">AVS</a>
           </div>
         </div>
+
+        <!-- Colonne 4 : Contact -->
         <div>
           <div class="f-col-titre">Contact officiel</div>
           <div class="f-contact-item">
@@ -136,6 +168,7 @@ function construireFooter() {
           <div class="f-alerte">⚠️ Utilisez uniquement les coordonnées officielles du Cabinet pour éviter les faux comptes.</div>
         </div>
       </div>
+
       <div class="footer-bas">
         <span class="f-copy">© 2026 Cabinet GBÊMADOYÔMIN. Tous droits réservés. | TODAAA..!</span>
         <span class="f-todaaa">TODAAA..!</span>
@@ -144,7 +177,10 @@ function construireFooter() {
   </footer>`;
 }
 
-// ---- BOUTONS FLOTTANTS ----
+// ============================================================
+// 4. BOUTONS FLOTTANTS (WhatsApp + RDV)
+// ============================================================
+
 function construireFlottants() {
   return `
   <div class="flottants">
@@ -155,16 +191,22 @@ function construireFlottants() {
   </div>`;
 }
 
-// ---- MENU MOBILE ----
+// ============================================================
+// 5. MENU MOBILE (hamburger)
+// ============================================================
+
 function activerMenuMobile() {
   const burger = document.getElementById('nav-burger');
   const liens = document.getElementById('nav-liens');
   if (!burger || !liens) return;
+
   burger.addEventListener('click', () => {
     const ouvert = liens.classList.toggle('ouvert');
     burger.classList.toggle('ouvert', ouvert);
     burger.setAttribute('aria-expanded', String(ouvert));
   });
+
+  // Fermer le menu au clic sur un lien
   liens.querySelectorAll('.nav-lien, .nav-rdv-mobile').forEach(a =>
     a.addEventListener('click', () => {
       liens.classList.remove('ouvert');
@@ -174,18 +216,28 @@ function activerMenuMobile() {
   );
 }
 
-// ---- INITIALISATION ----
+// ============================================================
+// 6. INITIALISATION AU CHARGEMENT DE LA PAGE
+// ============================================================
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Récupérer la page active
   const pageActive = document.body.dataset.page || '';
+
+  // Injecter la nav et le footer
   const navPlaceholder = document.getElementById('nav-placeholder');
   const footerPlaceholder = document.getElementById('footer-placeholder');
 
   if (navPlaceholder) navPlaceholder.outerHTML = construireNav(pageActive);
   if (footerPlaceholder) footerPlaceholder.outerHTML = construireFooter() + construireFlottants();
 
+  // Activer le menu mobile
   activerMenuMobile();
 
-  // ---- INITIALISATION DU THÈME ----
+  // ============================================================
+  // 7. INITIALISATION DU THÈME
+  // ============================================================
+
   const theme = getThemePreference();
   applyTheme(theme);
 
@@ -195,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.addEventListener('click', toggleTheme);
   }
 
-  // Écouteur pour détecter les changements de thème du navigateur (en temps réel)
+  // Détection des changements de thème du navigateur (en temps réel)
   if (window.matchMedia) {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
     mediaQuery.addEventListener('change', (e) => {
@@ -206,5 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Événement pour signaler que tous les composants sont prêts
   document.dispatchEvent(new Event('composants:prets'));
 });
