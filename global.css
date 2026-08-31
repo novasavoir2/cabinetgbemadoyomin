@@ -1,8 +1,17 @@
 @import url('variables.css');
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -18,47 +27,61 @@ html { scroll-behavior: smooth; }
    THÈMES — Clair / Sombre (bascule via .clair sur <body>)
    ============================================================ */
 :root {
-  /* Palette officielle (inchangée) */
-  --noir:     #0D0D0D;
-  --or:       #C9A84C;
-  --rouge:    #8B1A1A;
-  --blanc:    #F5F0E8;
-  --bleu:     #0D1F3C;
+  /* ---- Palette officielle (inchangée) ---- */
+  --noir:         #0D0D0D;
+  --or:           #C9A84C;
+  --rouge:        #8B1A1A;
+  --blanc:        #F5F0E8;
+  --bleu:         #0D1F3C;
 
-  --or-clair: #E8D58A;
-  --or-fonce: #A8892E;
-  --rouge-fonce: #5C1010;
-  --blanc-casse: #EDE8DF;
+  --or-clair:     #E8D58A;
+  --or-fonce:     #A8892E;
+  --rouge-fonce:  #5C1010;
+  --blanc-casse:  #EDE8DF;
 
-  /* Mode sombre (par défaut) */
-  --bg:            var(--noir);
-  --surface:       #111111;
-  --surface-2:     #161616;
-  --surface-3:     #1a1a1a;
-  --texte:         var(--blanc);
-  --texte-doux:    #C8C0B0;
-  --texte-discret: #7A7060;
-  --border:        rgba(201, 168, 76, 0.20);
-  --border-discret: rgba(201, 168, 76, 0.10);
-  --shadow:        0 8px 30px rgba(0,0,0,0.6);
+  /* ---- Mode sombre (par défaut) ---- */
+  --bg:               var(--noir);
+  --surface:          #111111;
+  --surface-2:        #161616;
+  --surface-3:        #1a1a1a;
+  --surface-4:        #222222;
+
+  --texte:            var(--blanc);
+  --texte-doux:       #C8C0B0;
+  --texte-discret:    #7A7060;
+  --texte-inverse:    var(--noir);
+
+  --border:           rgba(201, 168, 76, 0.20);
+  --border-discret:   rgba(201, 168, 76, 0.10);
+  --border-fort:      rgba(201, 168, 76, 0.40);
+
+  --shadow:           0 8px 30px rgba(0, 0, 0, 0.6);
+  --shadow-doux:      0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Mode clair — activé via .clair sur <body> */
+/* ---- Mode clair (activé via .clair sur <body>) ---- */
 body.clair {
-  --bg:            #F5F0E8;
-  --surface:       #FFFFFF;
-  --surface-2:     #EEE8DC;
-  --surface-3:     #E8E0D0;
-  --texte:         #161616;
-  --texte-doux:    #5E5A52;
-  --texte-discret: #8A8678;
-  --border:        rgba(13, 31, 60, 0.15);
-  --border-discret: rgba(13, 31, 60, 0.08);
-  --shadow:        0 8px 30px rgba(0,0,0,0.12);
+  --bg:               #F5F0E8;
+  --surface:          #FFFFFF;
+  --surface-2:        #EEE8DC;
+  --surface-3:        #E8E0D0;
+  --surface-4:        #DDD5C5;
+
+  --texte:            #161616;
+  --texte-doux:       #5E5A52;
+  --texte-discret:    #8A8678;
+  --texte-inverse:    var(--blanc);
+
+  --border:           rgba(13, 31, 60, 0.15);
+  --border-discret:   rgba(13, 31, 60, 0.08);
+  --border-fort:      rgba(13, 31, 60, 0.30);
+
+  --shadow:           0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-doux:      0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* ============================================================
-   APPLICATION DES VARIABLES
+   CORPS DE PAGE
    ============================================================ */
 body {
   background: var(--bg);
@@ -68,12 +91,29 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-ul, ol { list-style: none; }
+/* ============================================================
+   ÉLÉMENTS DE BASE
+   ============================================================ */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--or-clair);
+}
+
+ul, ol {
+  list-style: none;
+}
 
 button {
   font: inherit;
@@ -83,6 +123,9 @@ button {
   cursor: pointer;
 }
 
+/* ============================================================
+   TYPOGRAPHIE
+   ============================================================ */
 h1, h2, h3, h4 {
   font-family: var(--font-titres);
   font-weight: 700;
@@ -105,11 +148,17 @@ p {
   color: var(--texte-doux);
 }
 
+/* ============================================================
+   ACCESSIBILITÉ
+   ============================================================ */
 :focus-visible {
   outline: 2px solid var(--or);
   outline-offset: 3px;
 }
 
+/* ============================================================
+   CONTENEUR & SECTIONS
+   ============================================================ */
 .conteneur {
   width: 100%;
   max-width: var(--largeur-max);
@@ -117,7 +166,9 @@ p {
   padding-inline: clamp(20px, 5vw, 48px);
 }
 
-section { padding-block: var(--espace-xl); }
+section {
+  padding-block: var(--espace-xl);
+}
 
 /* ============================================================
    BOUTONS
@@ -132,12 +183,19 @@ section { padding-block: var(--espace-xl); }
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 14px 30px;
   border-radius: var(--rayon);
   box-shadow: var(--lueur-or);
-  transition: transform var(--vitesse), box-shadow var(--vitesse);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.btn-or:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,146,46,.4); }
+.btn-or:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(184, 146, 46, 0.4);
+}
+.btn-or:active {
+  transform: translateY(-1px);
+}
 
 .btn-contour {
   display: inline-flex;
@@ -149,12 +207,20 @@ section { padding-block: var(--espace-xl); }
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 12px 26px;
   border-radius: var(--rayon);
-  transition: border-color var(--vitesse), color var(--vitesse);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
-.btn-contour:hover { border-color: var(--or); color: var(--or-clair); }
+.btn-contour:hover {
+  border-color: var(--or);
+  color: var(--or-clair);
+  background: rgba(201, 168, 76, 0.05);
+}
 
+/* ============================================================
+   ÉLÉMENTS D'INTERFACE
+   ============================================================ */
 .eyebrow {
   font-family: var(--font-accent);
   font-style: italic;
@@ -169,8 +235,12 @@ section { padding-block: var(--espace-xl); }
 }
 
 .visually-hidden {
-  position: absolute; width: 1px; height: 1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 /* ============================================================
@@ -182,7 +252,7 @@ section { padding-block: var(--espace-xl); }
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 2rem;
-  transition: transform var(--vitesse), border-color var(--vitesse), box-shadow var(--vitesse);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 .card:hover {
   transform: translateY(-8px);
@@ -194,5 +264,10 @@ section { padding-block: var(--espace-xl); }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 640px) {
-  section { padding-block: var(--espace-lg); }
+  section {
+    padding-block: var(--espace-lg);
+  }
+  .card {
+    padding: 1.5rem;
+  }
 }
