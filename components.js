@@ -107,7 +107,7 @@ function construireFooter() {
             <span class="f-contact-icon">📍</span>
             <div class="f-contact-texte"><strong>Localisation</strong>Abomey-Calavi, Bénin</div>
           </div>
-          <div class="f-alerte">⚠️ Utilisez uniquement les coordonnées officielles du Cabinet pour éviter les faux comptes.</div>
+       
         </div>
       </div>
       <div class="footer-bas">
