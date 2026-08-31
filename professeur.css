@@ -1,0 +1,73 @@
+.prof-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(180deg, rgba(13,13,13,.2), var(--noir) 85%), var(--noir-2);
+  padding-block: var(--espace-xl) var(--espace-md);
+}
+.prof-hero-portrait {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, var(--noir-3), var(--bleu) 70%);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-discret); font-size: .85rem; text-align: center;
+  opacity: .5;
+}
+.prof-hero-contenu { position: relative; max-width: 640px; }
+
+.prof-bloc { max-width: var(--largeur-texte); margin-inline: auto; }
+.prof-bloc + .prof-bloc { margin-top: var(--espace-lg); }
+.prof-bloc p { color: var(--blanc-doux); margin-bottom: var(--espace-sm); }
+.prof-bloc h2 { margin-bottom: var(--espace-sm); }
+
+.prof-citation {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--or-clair);
+  text-align: center;
+  max-width: 640px;
+  margin: var(--espace-lg) auto;
+  line-height: 1.5;
+}
+
+.ouvrages-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espace-sm);
+}
+.ouvrage-carte {
+  border: 1px solid var(--border-discret);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color var(--vitesse), transform var(--vitesse);
+}
+.ouvrage-carte:hover { border-color: var(--or); transform: translateY(-4px); }
+.ouvrage-couverture {
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--noir-3), var(--noir-2));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-discret); font-size: .72rem; text-align: center; padding: 14px;
+}
+.ouvrage-infos { padding: 12px 14px; }
+.ouvrage-titre { font-family: var(--font-titres); font-size: .8rem; color: var(--blanc); }
+
+.galerie-grille {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.galerie-item {
+  aspect-ratio: 1;
+  background: var(--noir-2);
+  border: 1px solid var(--border-discret);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-discret); font-size: .68rem; text-align: center; padding: 8px;
+}
+
+@media (max-width: 860px) {
+  .ouvrages-grille { grid-template-columns: repeat(2, 1fr); }
+  .galerie-grille { grid-template-columns: repeat(2, 1fr); }
+}

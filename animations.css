@@ -1,0 +1,78 @@
+/* Révélation au scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.est-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax léger (positionné en JS via --parallax-y) */
+.parallax {
+  will-change: transform;
+  transform: translateY(var(--parallax-y, 0));
+}
+
+/* Curseur typewriter */
+.typewriter::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--or);
+  margin-left: 4px;
+  animation: clignoter 0.9s steps(1) infinite;
+}
+@keyframes clignoter {
+  50% { opacity: 0; }
+}
+
+/* Pulsation boutons flottants */
+.pulse-doux {
+  animation: pulse-doux 2.6s ease-in-out infinite;
+}
+@keyframes pulse-doux {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184,146,46,.35); }
+  50% { box-shadow: 0 0 0 10px rgba(184,146,46,0); }
+}
+
+/* Chargement / loader initial */
+.loader {
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--noir);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.loader.cache { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-marque {
+  font-family: var(--font-titres);
+  color: var(--or);
+  letter-spacing: 0.3em;
+  font-size: 0.9rem;
+  animation: respirer 1.6s ease-in-out infinite;
+}
+@keyframes respirer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Panneau chatbot */
+.chatbot-panneau {
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--vitesse), opacity var(--vitesse);
+}
+.chatbot-panneau.ouvert {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .parallax { transform: none !important; }
+  .typewriter::after, .pulse-doux, .loader-marque { animation: none; }
+}
